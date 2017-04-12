@@ -1,0 +1,40 @@
+# Project: Tetris
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o timer.o renderer.o action.o block.o
+LINKOBJ  = main.o timer.o renderer.o action.o block.o
+LIBS     = -L"D:/Dev/Dev-CPP/MinGW64/lib" -L"D:/Dev/Dev-CPP/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/Dev/Dev-CPP/MinGW64/include" -I"D:/Dev/Dev-CPP/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev/Dev-CPP/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Dev/Dev-CPP/MinGW64/include" -I"D:/Dev/Dev-CPP/MinGW64/x86_64-w64-mingw32/include" -I"D:/Dev/Dev-CPP/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Dev/Dev-CPP/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Tetris.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+timer.o: timer.c
+	$(CC) -c timer.c -o timer.o $(CFLAGS)
+
+renderer.o: renderer.c
+	$(CC) -c renderer.c -o renderer.o $(CFLAGS)
+
+action.o: action.c
+	$(CC) -c action.c -o action.o $(CFLAGS)
+
+block.o: block.c
+	$(CC) -c block.c -o block.o $(CFLAGS)
