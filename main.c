@@ -20,15 +20,18 @@ int gameStatus = 1;
 /* Score */
 int score = 0;
 /* 
-    Define the type of the block.
-    Square(0), "L"(1), Reverse"L"(2), Rectangle(3),
-    Lighting(4), Reverse lighting(5), Chinese character "TU"(6)
+  Define the type of the block.
+  Square(0), "L"(1), Rectangle(2), Lighting(3), 
+  Reverse lighting(4), Chinese character "TU"(5)
  */
 int type = 0;
+int stype = 0;
 int nextType = 0;
+char shape[7][4][16];
 /* Define a map */
 int tetMap[100][100];
 
+/* Main function */
 int main(int argc, char *argv[]) {
     //Initialize a timer
     HANDLE handle = CreateThread(NULL, 0, run, NULL, 0, NULL);
@@ -36,6 +39,7 @@ int main(int argc, char *argv[]) {
     //Randomize a type
     srand(time(NULL));
     type = rand() % 7;
+    stype = rand() % 4;
     nextType = rand() % 7;
     //Reset the map
     reset();
@@ -49,10 +53,15 @@ int main(int argc, char *argv[]) {
             Left:75 (0)
             Up:72 (1)
             Right:77 (2)
-            Down: 80 (3)
+            Down:80 (3)
+            Space:32
+            p:112 (Pause)
         */
         
         switch (key){
+            case 32:
+                rotate();
+                break; 
             case 75:
                 moveAction(0);
                 break;
@@ -84,3 +93,5 @@ int main(int argc, char *argv[]) {
     }
     return 0;
 }
+/* Main function end */
+
