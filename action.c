@@ -272,7 +272,7 @@ void rotate() {
             for (j=cenY-1; j<cenY+2; j++){
                 for (i=cenX-1; i<cenX+2; i++){
                     if (tempMap[j-(cenY-1)][i-(cenX-1)] == 2 && tetMap[j][i] == 1){
-                        break;
+                        return;
                     }
                 }
             }
@@ -311,7 +311,7 @@ void rotate() {
             for (j=cenY-1; j<cenY+2; j++){
                 for (i=cenX-1; i<cenX+2; i++){
                     if (tempMap[j-(cenY-1)][i-(cenX-1)] == 2 && tetMap[j][i] == 1){
-                        break;
+                        return;
                     }
                 }
             }

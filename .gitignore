@@ -1,3 +1,6 @@
+#Custom files
+Exclude/
+
 # Object files
 *.o
 *.ko

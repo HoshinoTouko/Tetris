@@ -3,6 +3,7 @@
 #include <conio.h>
 #include <windows.h>
 #include <time.h>
+#include <stdbool.h>
 #include "renderer.h"
 #include "timer.h"
 #include "action.h"
@@ -25,7 +26,6 @@ int score = 0;
   Reverse lighting(4), Chinese character "TU"(5)
  */
 int type = 0;
-int stype = 0;
 int nextType = 0;
 char shape[7][4][16];
 /* Define a map */
@@ -33,13 +33,17 @@ int tetMap[100][100];
 
 /* Main function */
 int main(int argc, char *argv[]) {
+    /* Get console infomation */
+    HANDLE g_hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
+    /* Hide cursor */
+    CONSOLE_CURSOR_INFO cursorInfo = {1, false};
+    SetConsoleCursorInfo(g_hConsoleOutput, &cursorInfo);
     //Initialize a timer
     HANDLE handle = CreateThread(NULL, 0, run, NULL, 0, NULL);
     WaitForSingleObject(handle, 0);
     //Randomize a type
     srand(time(NULL));
     type = rand() % 7;
-    stype = rand() % 4;
     nextType = rand() % 7;
     //Reset the map
     reset();
