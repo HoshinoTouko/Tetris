@@ -16,6 +16,12 @@ void gotoXY(int x, int y){
 
 void show(){
     int i, j;//Loop variable
+    
+    HANDLE hNewConsole = CreateConsoleScreenBuffer(GENERIC_WRITE | GENERIC_READ,
+         0,
+         NULL, 
+         CONSOLE_TEXTMODE_BUFFER,
+         NULL);
 
     if (gameStatus == 2){
         system("cls");
@@ -25,20 +31,13 @@ void show(){
     for (j=0; j<y; j++){
         for (i=0; i<x; i++){
             if (tetMap[j][i] > 0){
-                gotoXY(i, j);
-                printf("[]");
+                WriteConsole(hNewConsole, "¡ö", 2, NULL, NULL);
             }
             else{
-                gotoXY(i, j);
-                printf("  ");
+                WriteConsole(hNewConsole, "  ", 2, NULL, NULL);
             }
         }
-        gotoXY(i, j);
-        printf("| \n");
-        for (i=x+1; i<50; i++){
-            gotoXY(i, j);
-            printf("  ");
-        }
+        WriteConsole(hNewConsole, "| \n", 3, NULL, NULL);
     }
     /* Show game status */
     /* Game status: Stop(0) Gaming(1) Lost(2) Pause(3) */
@@ -58,6 +57,9 @@ void show(){
             break;
     }
     printf("Your score:  %d", score);
+    
+    SetConsoleActiveScreenBuffer(hNewConsole);
+    
 }
 
 void oldShow(){
