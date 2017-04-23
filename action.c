@@ -190,10 +190,6 @@ void checkLost() {
 			gameStatus = 2;
 		}
 	}
-	if (gameStatus == 2) {
-		system("cls");
-		printf("You lost.");
-	}
 }
 
 /* Status: Success(0) Get down to the map(1) Unable to move(2) */
