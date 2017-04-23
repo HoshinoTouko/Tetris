@@ -35,9 +35,14 @@ void show(){
         }
         gotoXY(i, j);
         printf("| \n");
+        for (i=x+1; i<50; i++){
+            gotoXY(i, j);
+            printf("  ");
+        }
     }
     /* Show game status */
     /* Game status: Stop(0) Gaming(1) Lost(2) Pause(3) */
+    gotoXY(0, j);
     switch (gameStatus) {
         case 0:
             printf("Stop  ");
@@ -52,7 +57,6 @@ void show(){
             printf("Pasue(p)  ");
             break;
     }
-    gotoXY(i-3, j);
     printf("Your score:  %d", score);
 }
 
