@@ -1,5 +1,16 @@
 # Tetris
 
-## An CSAPP homework. It runs under console. 
+## 俄罗斯方块
 
-It will be more beautiful in half of a month.
+#### 必须在Windows下运行（使用了Windows的API）
+
+#### 环境：
+
+- Windows10 64bit
+- Dev-Cpp 5.11
+
+#### 更新结束
+
+主体已经做完了，接下来应该不会再有其他更新了。如果哪天我想美化它可能会继续做，不过我已经不想碰C语言了  
+
+Orz  
