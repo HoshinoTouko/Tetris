@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     //Create a new tetris
     newTetris();
     int key;
-    while (1){
+    while (1) {
         key = getch();
         /*
             Key infomation:
@@ -61,7 +61,6 @@ int main(int argc, char *argv[]) {
             Space:32
             p:112 (Pause)
         */
-        
         switch (key){
             case 32:
                 rotate();
